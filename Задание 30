@@ -8,41 +8,20 @@ namespace ConsoleApp1
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            var number = 0;
-            var list = new List<int>();
-            var listResult = new List<double>();
-            double result = 0;
-            for (int i = 2; i < 100000; i++) 
-                {
-                list.Add(i);
-                }
-            for (int i = 0; i < list.Count; i++)
+            var result = 0;
+            for (int i = 2; i < 1000000; i++)
             {
-                var array = new List<int>();
-                var word = list[i].ToString();
-                var sum = 0.0;
-                foreach (var item in word)
-                {
-                    array.Add(item-'0');
-                }
-                for (int j = 0; j < array.Count; j++)
-                {
-                    sum += Math.Pow((int)array[j], 4);
-                    
-
-                }
-                if (sum == list[i])
-                    listResult.Add(sum);
-            }
-            for (int i = 0; i < listResult.Count; i++)
-            {
-                result += listResult[i];
+                var wordNumbers = i.ToString();
+                var sum = 0;
+                foreach (var number in wordNumbers)
+                    sum += (int)Math.Pow(number - '0', 5);
+                if (sum == i)
+                    result += sum;
             }
             Console.WriteLine(result);
-            
         }
     }
 }
