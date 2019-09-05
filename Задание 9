@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var number = 1000;
+            var sum = 0;
+            var a = new List<int>();
+            var b = new List<int>();
+            var c = new List<int>();
+            var result=0;
+            var numbers = new Dictionary<int, int>();
+            var dictionary = new Dictionary<Dictionary<int,int>, int>();
+            for (int i = 1; i < 500; i++)
+            {
+                for (int j = 1; j < 500; j++)
+                {  
+                    if (i < j && Math.Sqrt(i * i + j * j) - Math.Truncate(Math.Sqrt(i * i + j * j)) == 0)
+                    {
+                        a.Add(i);
+                        b.Add(j);
+                        c.Add((int)Math.Sqrt(i * i + j * j));   
+                    }   
+                }     
+            }
+            for (int i = 0; i < c.Count; i++)
+            {
+                if (a[i] + b[i] + c[i] == 1000)
+                    result = a[i] * b[i] * c[i];
+            }
+            Console.WriteLine(result);
+        }
+    }
+}
